@@ -18,6 +18,8 @@ urlpatterns = [
     path('voucher',views.voucher,name='voucher'),
     path('vouchpage',views.vouchpage,name='vouchpage'),
     path('month',views.month,name='month'),
+    path('Statistics',views.Statistics,name='Statistics'),
+    path('Index',views.Index,name='Index'),
    
     
 

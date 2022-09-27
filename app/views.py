@@ -5,9 +5,14 @@ from django.contrib.auth.models import auth,User
 from django.contrib import messages
 
 # Create your views here.
+def Index(request):
+    return render(request,'index.html')
 
 def month(request):
     return render(request,'month.html')
+
+def Statistics(request):
+    return render(request,'statics.html')
 
 
 
