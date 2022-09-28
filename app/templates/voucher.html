@@ -33,6 +33,7 @@ cursor:pointer;
 }
  .btn{
     border: 1px solid rgb(103, 175, 220);
+    color: black;
     /* height: 30px;
     text-align: center; */
     
@@ -41,6 +42,12 @@ cursor:pointer;
 
     
   }
+  .bu:hover{
+    background-color: rgb(216, 155, 51);
+}
+.bu{
+    background-color: rgb(250, 248, 245);
+}
   .table1{
     border: 1px solid rgb(103, 175, 220);
   }
@@ -77,7 +84,7 @@ cursor:pointer;
                           <th style="text-align: right;">Vch No.</th>
                           <th style="text-align: right;">Debit <br>Amount</th>
                           <th style="text-align: right;">Credit<br> Amount</th>
-                          <th style="text-align: center;"><i class="fa fa-trash" style="color: red;"></i></th>
+                          
                           
                         </tr>
                     </thead>
@@ -88,7 +95,7 @@ cursor:pointer;
                             <input type="number" value="{{i.id}}" id="delid" hidden >
                             <td style="text-align: center;">{{i.Date}}</td>
                             <td colspan="2"><strong>{{i.Particulars}}</strong></td>
-                            <td style="text-align: center;"><strong>{{vch.Vouchers_name}}</strong></td>
+                            <td style="text-align: center;"><strong>{{i.Voucher2}}</strong></td>
                             <td style="text-align: right;"><strong>{{forloop.counter}}</strong></td>
                             <td  style="text-align: right;"><strong>
                                 {% if i.Debit_Amount %}
@@ -144,11 +151,11 @@ cursor:pointer;
                   </div>
                   <table class="table1 col" style="text-align: center; margin-top: 10px;" >
                     <thead>
-                        <th ><a href="{% url 'Index' %}" type="button"  class="btn p-1 px-4" >Quit</a></th>
-                        <th><button type="button"  class="btn p-1 px-4" onclick="myFunction()">Select</button></th>
+                        <th class="bu"><a href="{% url 'Index' %}" type="button"  class="btn p-1 px-4" >Quit</a></th>
+                        <th class="bu"><button type="button"  class="btn p-1 px-4" onclick="myFunction()">Select</button></th>
                         <!-- <th><b  type="button"  class="btn p-1 px-4"  onclick="Delete()" >Delete</button></th> -->
-                        <th><button type="button"  class="btn p-1 px-1" onclick="removeSelectedRow()">Remove Line</button></th>
-                        <th><a href="" type="button"  class="btn p-1 px-1" >Restore Line</a></th>
+                        <th class="bu"><button type="button"  class="btn p-1 px-1" onclick="removeSelectedRow()">Remove Line</button></th>
+                        <th class="bu"><a href="" type="button"  class="btn p-1 px-1" >Restore Line</a></th>
                     </thead>
                 </table>
 

@@ -355,12 +355,11 @@
                             </a>
                             <ul>
                                 <li><a href="#"><i class="bx bx-right-arrow-alt"></i>Account Books</a>
-                                    <ul>
-                                        <li><a href="{% url 'month' %}"><i class=" bx bx-caret-right"></i>Contra Register</a></li>
-                                        <li><a href=""><i class=" bx bx-caret-right"></i>Payment Register</a></li>
-                                        <li><a href="{% url 'Statistics' %}"><i class=" bx bx-caret-right"></i>Receipt Register</a></li>
-                                        <li><a href=""><i class=" bx bx-caret-right"></i>Quit</a></li>
-                                                                            
+                                    <ul>{% for i in voucher %}
+                                        <li><a href="{% url 'month' i.id%}"><i class=" bx bx-caret-right"></i>{{i.Vouchers_name}}</a></li>
+                                       
+                                        {% endfor %}
+                                   
                                     </ul>
                                 </li>
                                 <li> <a href="#"><i class="bx bx-right-arrow-alt"></i>Statements of Accounts</a>

@@ -17,10 +17,12 @@ urlpatterns = [
     path('costcentr',views.costcentr,name='costcentr'),
     path('voucher',views.voucher,name='voucher'),
     path('vouchpage',views.vouchpage,name='vouchpage'),
-    path('month',views.month,name='month'),
+    path('month/<int:id>',views.month,name='month'),
     path('Statistics',views.Statistics,name='Statistics'),
     path('Index',views.Index,name='Index'),
-   
+    path('Statistics_voucher_register/<int:id>/<int:pk>',views.Statistics_voucher_register,name='Statistics_voucher_register'),
+    path('Statistics_voucher_Delete/<int:id>/<int:pk>/<int:de>',views.Statistics_voucher_Delete,name='Statistics_voucher_Delete'),
+
     
 
 

@@ -29,14 +29,22 @@ cursor:pointer;
 }
 .btn{
     border: 1px solid rgb(103, 175, 220);
+    color: black;
     /* height: 30px;
     text-align: center; */
     
     width: 95%;
-    
+}
+.bu:hover{
+    background-color: rgb(216, 155, 51);
+}
+.bu{
+    background-color: rgb(250, 248, 245);
+}
+  
 
     
-  }
+  
   .table1{
     border: 1px solid rgb(103, 175, 220);
   }
@@ -138,10 +146,10 @@ cursor:pointer;
 
                   <table class="table1 col" style="text-align: center; margin-top: 10px;" >
                     <thead>
-                        <th ><a href="#" type="button"  class="btn p-1 px-4" >Quit</a></th>
-                        <th><button type="button"  class="btn p-1 px-4" onclick="myFunction()">Select</button></th>
-                        <th><button type="button"  class="btn p-1 px-1" onclick="removeSelectedRow()">Remove Line</button></th>
-                        <th><a href="#" type="button"  class="btn p-1 px-1" >Restore Line</a></th>
+                        <th class="bu"><a href="#" type="button"  class="btn p-1 px-4" >Quit</a></th>
+                        <th class="bu"><button type="button"  class="btn p-1 px-4" onclick="myFunction()">Select</button></th>
+                        <th class="bu"><button type="button"  class="btn p-1 px-1" onclick="removeSelectedRow()">Remove Line</button></th>
+                        <th class="bu"><a href="{% url 'Statistics' %}" type="button"  class="btn p-1 px-1" >Restore Line</a></th>
                     </thead>
                 </table>
                 <div style="margin-top: 1px; height: 10px ; width: 100%;"></div>

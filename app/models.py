@@ -4,31 +4,68 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 
 
-class crtcompony(models.Model):
-    componyname = models.CharField(max_length=50)
-    mailingname = models.CharField (max_length=50)
-    address = models.CharField (max_length=50)
-    state = models.CharField (max_length=50)
-    country = models.CharField (max_length=50)
-    pincode = models.CharField (max_length=10)
-    telphone = models.CharField(max_length=10)
-    mobile = models.CharField(max_length=10)
-    fax = models.CharField(max_length=10)
-    email=models.EmailField()
-    website=models.CharField(max_length=100)
-    fyearbgn=models.DateField()
-    booksbgn=models.DateField()
-    curncysymbl=models.CharField(max_length=10)
-    crncyname=models.CharField(max_length=10)
+class statistics_Vouchers(models.Model):
+    Vouchers_name = models.CharField(max_length=255)
 
-class empgroup(models.Model):
-    name = models.CharField(max_length=50)
-    alias = models.CharField (max_length=50)
+    def __str__(self):
+        return self.Vouchers_name
+
+class statistics_Accounts(models.Model):
+    Accounts_name =models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.Accounts_name 
 
 
-class empgroup2(models.Model):
-    groupname = models.CharField(max_length=50)
-    groupalias = models.CharField (max_length=50)
-    groupunder = models.CharField (max_length=50)
-   
-    
+
+class Months(models.Model):
+    month_name = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.month_name     
+
+
+class statistics_Voucher_Register(models.Model):
+    Voucher = models.ForeignKey(statistics_Vouchers,on_delete=models.CASCADE)
+    Month =models.ForeignKey(Months,on_delete=models.CASCADE)
+    Voucher2 = models.CharField(max_length=255,null=True,blank=True)
+    Date = models.DateField()
+
+    Particulars = models.CharField(max_length=255)
+    # Vch_Type = models.CharField(max_length=255)
+    # Vch_No = models.IntegerField()
+    Debit_Amount = models.IntegerField(default="",null=True,blank=True)
+    Credit_Amount = models.IntegerField(default="",null=True,blank=True)
+
+    def __str__(self):
+        return self.Voucher.Vouchers_name
+
+class statistics_Voucher_count(models.Model):
+    Voucher = models.ForeignKey(statistics_Vouchers,on_delete=models.CASCADE)
+    Month =models.ForeignKey(Months,on_delete=models.CASCADE)
+    Total_Voucher = models.IntegerField(default="",null=True,blank=True)
+    # Cancelled = models.IntegerField(default="",null=True,blank=True)
+
+    def __str__(self):
+        return self.Voucher.Vouchers_name
+
+
+class statistics_Total_Voucher(models.Model):
+    Voucher = models.ForeignKey(statistics_Vouchers,on_delete=models.CASCADE)
+    Total = models.IntegerField(default=0,null=True,blank=True)
+
+    def __str__(self):
+        return self.Voucher.Vouchers_name
+
+
+class statistics_Accounts_Total(models.Model):
+    Accounts = models.ForeignKey(statistics_Accounts,on_delete=models.CASCADE)
+    Total = models.IntegerField(default=0,null=True,blank=True)
+
+    def __str__(self):
+        return self.Accounts.Accounts_name
+
+
+
+
+
