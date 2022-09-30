@@ -80,14 +80,14 @@ cursor:pointer;
         <div class="main-panel">
             <div class="content-wrapper">
                 <div class="row d-flex " style="background-color: rgb(103, 175, 220);color:#fff;width:100%;height: 25px; margin: auto;">
-                    <div class="col "> Voucher Register</div><div class=""><button class="" style="margin-top: 50px; width: 80px;margin-left: 1330px;height: 24px;border: 1px solid black;" id="but2"><a href="{% url 'date' vch.id %}"  class=" bx bx-caret-right" id="but2">Period</a></div>
+                    <div class="col "> Voucher Register</div><div class=""><button class="" style="margin-top: 50px; width: 80px;margin-left: 1335px;height: 24px;border: 1px solid black;" id="but2"><a href=""  class=" bx bx-caret-right" id="but2">Period</a></div>
                    
                 </div>
                 <div class="row  " style="height: 50px;">
                 <div class="col ">
                     <h6>
-                    <span class=" d-flex justify-content-start" style="margin-top: 8px;"><strong> List of {{vch.Vouchers_name}}  Vouchers </strong> </span>
-                    <span class="d-flex  justify-content-end " style="margin-top: -15px;"> 1-{{m}}-22 to 30-{{m}}-22</span>
+                    <span class=" d-flex justify-content-start" style="margin-top: 8px;"><strong> List of {{ch.Vouchers_name}}  Vouchers </strong> </span>
+                    <span class="d-flex  justify-content-end " style="margin-top: -15px;"> {{dataf}} to {{datat}}</span>
                 </h6>
                 </div>
             </div>
@@ -108,7 +108,7 @@ cursor:pointer;
                     </thead>
 
                     <tbody >
-                        {% for i in voucher %}
+                        {% for i in t %}
                         <tr class="table-row" >
                             <input type="number" value="{{i.id}}" id="delid" hidden >
                             <td style="text-align: center;">{{i.Date}}</td>
@@ -127,7 +127,7 @@ cursor:pointer;
                             </strong></td>
 
                             <td style="text-align: center;">
-                                <form action="{% url 'Statistics_voucher_Delete' m.id vch.id i.id  %}" method="POST" id="myform">{% csrf_token %}
+                                <form action="" method="POST" id="myform">{% csrf_token %}
                                     <input name="_method" type="hidden" value="DELETE">
                                 <a  class="fa fa-trash delete" style="color: red;" ></a>
                             </form>
@@ -152,6 +152,10 @@ cursor:pointer;
                             <td></td>
 
                         </tr>
+                        
+
+
+                        
                         
 
 

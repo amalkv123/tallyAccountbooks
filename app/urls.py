@@ -22,7 +22,8 @@ urlpatterns = [
     path('Index',views.Index,name='Index'),
     path('Statistics_voucher_register/<int:id>/<int:pk>',views.Statistics_voucher_register,name='Statistics_voucher_register'),
     path('Statistics_voucher_Delete/<int:id>/<int:pk>/<int:de>',views.Statistics_voucher_Delete,name='Statistics_voucher_Delete'),
-
+    path('date/<int:pk>',views.date,name='date'),
+    path('date2/<int:pk>',views.date2,name='date2'),
     
 
 

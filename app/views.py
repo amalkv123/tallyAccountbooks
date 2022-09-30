@@ -9,6 +9,38 @@ def Index(request):
    
     return render(request,'index.html')
 
+def date(request,pk):
+    vh=statistics_Vouchers.objects.get(id=pk)
+    return render(request,'date.html',{'vh':vh})
+
+def date2(request,pk):
+    ch=statistics_Vouchers.objects.get(id=pk)
+    #vh=statistics_Voucher_Register.objects.get(id=pk)
+    vh=statistics_Voucher_Register.objects.filter(Voucher=pk)
+
+    total_debit=0
+    total_credit=0
+    print(vh)
+
+    for i in vh:
+         if i.Debit_Amount:
+            total_debit +=i.Debit_Amount
+         if i.Credit_Amount:   
+       
+            total_credit +=i.Credit_Amount
+    if request.method =='POST':
+        dataf=request.POST['datef']
+        datat=request.POST['datet']
+        try:
+            t=statistics_Voucher_Register.objects.filter(Voucher=pk,Date__lte=datat,Date__gte=dataf)
+            print(t)
+        except:
+
+            t=None
+    context={'t':t,'ch':ch,'dataf':dataf,'datat':datat,'total_debit':total_debit,'total_credit':total_credit}
+           
+    return render(request,'voucher2.html',context)   
+
 def base(request):
     voucher =statistics_Vouchers.objects.all().order_by('Vouchers_name')
     return render(request, 'base.html',{'voucher':voucher})
@@ -64,6 +96,7 @@ def month(request,id):
         'mo':mo,
         'vch':vch,
         'count':count,
+        'total':total,
         
         
         

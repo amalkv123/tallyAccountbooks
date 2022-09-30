@@ -28,12 +28,11 @@ class Months(models.Model):
 class statistics_Voucher_Register(models.Model):
     Voucher = models.ForeignKey(statistics_Vouchers,on_delete=models.CASCADE)
     Month =models.ForeignKey(Months,on_delete=models.CASCADE)
-    Voucher2 = models.CharField(max_length=255,null=True,blank=True)
+    Particulars = models.CharField(max_length=255)
     Date = models.DateField()
 
-    Particulars = models.CharField(max_length=255)
-    # Vch_Type = models.CharField(max_length=255)
-    # Vch_No = models.IntegerField()
+    Voucher2 = models.CharField(max_length=255)
+    
     Debit_Amount = models.IntegerField(default="",null=True,blank=True)
     Credit_Amount = models.IntegerField(default="",null=True,blank=True)
 
