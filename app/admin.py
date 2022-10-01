@@ -20,3 +20,5 @@ admin.site.register(statistics_Accounts_Total)
 
 admin.site.register(statistics_Total_Voucher)
 
+admin.site.register(tally_ledger)
+

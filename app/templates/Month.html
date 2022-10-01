@@ -94,7 +94,7 @@ cursor:pointer;
 
                     <tbody >
                         {% for i in mo %}
-                        <tr class="table-row" data-href="{% url 'Statistics_voucher_register' i.id vch.id %}" >
+                        <tr class="table-row" data-href="{% url 'Statistics_voucher_register' i.id vch.id am.id%}" >
                             <td colspan="2" >{{i.month_name}}</td>
                             {% if i.statistics_voucher_count_set.all %}
                             {% for j in i.statistics_voucher_count_set.all %}

@@ -80,14 +80,14 @@ cursor:pointer;
         <div class="main-panel">
             <div class="content-wrapper">
                 <div class="row d-flex " style="background-color: rgb(103, 175, 220);color:#fff;width:100%;height: 25px; margin: auto;">
-                    <div class="col "> Voucher Register</div><div class=""><button class="" style="margin-top: 50px; width: 80px;margin-left: 1330px;height: 24px;border: 1px solid black;" id="but2"><a href="{% url 'date' vch.id %}"  class=" bx bx-caret-right" id="but2">Period</a></div>
+                    <div class="col "> Voucher Register</div><div class=""><button class="" style="margin-top: 50px; width: 80px;margin-left: 1315px;height: 24px;border: 1px solid black;" id="but2"><a href="{% url 'date' vch.id %}"  class=" bx bx-caret-right" id="but2">Period</a></div>
                    
                 </div>
                 <div class="row  " style="height: 50px;">
                 <div class="col ">
                     <h6>
                     <span class=" d-flex justify-content-start" style="margin-top: 8px;"><strong> List of {{vch.Vouchers_name}}  Vouchers </strong> </span>
-                    <span class="d-flex  justify-content-end " style="margin-top: -15px;"> 1-{{m}}-22 to 30-{{m}}-22</span>
+                    <span class="d-flex  justify-content-end " style="margin-top: -15px;"> 1-{{m}}-22 to 30-Apr-22</span>
                 </h6>
                 </div>
             </div>
@@ -112,7 +112,7 @@ cursor:pointer;
                         <tr class="table-row" >
                             <input type="number" value="{{i.id}}" id="delid" hidden >
                             <td style="text-align: center;">{{i.Date}}</td>
-                            <td colspan="2"><strong>{{i.Particulars}}</strong></td>
+                            <td colspan="2"><strong>{{am.name}}</strong></td>
                             <td style="text-align: center;"><strong>{{i.Voucher2}}</strong></td>
                             <td style="text-align: right;"><strong>{{forloop.counter}}</strong></td>
                             <td  style="text-align: right;"><strong>

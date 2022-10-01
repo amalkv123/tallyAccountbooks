@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 import os
-from app.models import Months,statistics_Voucher_count,statistics_Total_Voucher,statistics_Vouchers,statistics_Voucher_Register,statistics_Accounts
+from app.models import Months,statistics_Voucher_count,statistics_Total_Voucher,statistics_Vouchers,statistics_Voucher_Register,statistics_Accounts,tally_ledger
 from django.contrib.auth.models import auth,User
 from django.contrib import messages
 
@@ -14,6 +14,7 @@ def date(request,pk):
     return render(request,'date.html',{'vh':vh})
 
 def date2(request,pk):
+    am=tally_ledger.object.all()
     ch=statistics_Vouchers.objects.get(id=pk)
     #vh=statistics_Voucher_Register.objects.get(id=pk)
     vh=statistics_Voucher_Register.objects.filter(Voucher=pk)
@@ -37,7 +38,7 @@ def date2(request,pk):
         except:
 
             t=None
-    context={'t':t,'ch':ch,'dataf':dataf,'datat':datat,'total_debit':total_debit,'total_credit':total_credit}
+    context={'t':t,'ch':ch,'dataf':dataf,'datat':datat,'total_debit':total_debit,'total_credit':total_credit,'am':am}
            
     return render(request,'voucher2.html',context)   
 
@@ -69,9 +70,9 @@ def Statistics(request):
     
     return render(request,'statics.html',context)
 
-def month(request,id):
+def month(request,id,pk2):
     mo = Months.objects.all()
-
+    am=tally_ledger.objects.get(id=pk2)
     vch = statistics_Vouchers.objects.get(id=id)
     count = statistics_Voucher_count.objects.filter(Voucher=id)
     total=0
@@ -97,6 +98,7 @@ def month(request,id):
         'vch':vch,
         'count':count,
         'total':total,
+        'am':am,
         
         
         
@@ -110,7 +112,8 @@ def month(request,id):
 
 
 
-def Statistics_voucher_register(request,id,pk):
+def Statistics_voucher_register(request,id,pk,pk2):
+    am=tally_ledger.objects.get(id=pk2)
     voucher = statistics_Voucher_Register.objects.filter(Month=id,Voucher=pk)
     vch = statistics_Vouchers.objects.get(id=pk)
     
@@ -153,6 +156,7 @@ def Statistics_voucher_register(request,id,pk):
         'total_credit':total_credit,
         'vch':vch,
         'm':m,
+        'am':am,
 
         
         
